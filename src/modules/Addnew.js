@@ -1,5 +1,4 @@
-//Create new Todo List Item
-const addNewTodo = (description) => {
+const addNewTodo = (description, tasks, createTodoListItemEl, todoList) => {
   const taskIndex = tasks.length;
   const task = { description, completed: false, index: taskIndex };
   tasks.push(task);

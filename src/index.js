@@ -1,6 +1,6 @@
 import './style.css';
-import createTodoListItemEl from './modules/createTodoListItem.js';
-import addNewTodo from './modules/Addnew.js';
+import addNewTodo from './modules/Addnew';
+import createTodoListItemEl from './modules/createTodoListItem';
 
 const todoList = document.getElementById('todo-list');
 const todoInput = document.getElementById('todo-Input');
@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
     return;
   }
   // Add the new task and reset the input field
-  addNewTodo(todoDescription);
+  addNewTodo(todoDescription, tasks, createTodoListItemEl, todoList);
   todoInput.value = '';
 });
 
