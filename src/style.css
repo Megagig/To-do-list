@@ -55,12 +55,6 @@ form {
 
 .todo-input {
   border: none;
-  /* flex: 1;
-  height: 40px;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 16px;
-  border: 1px solid #ddd; */
 }
 
 input[type='text'] {
