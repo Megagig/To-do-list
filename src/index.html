@@ -8,7 +8,10 @@
   </head>
   <body>
     <div class="container">
-      <h4>Today's Todo</h4>
+      <div class="title">
+        <h4>Today's Todo</h4>
+        <i class="uil uil-redo"></i>
+      </div>
       <hr />
       <form>
         <input
@@ -18,8 +21,10 @@
           id="todo-Input"
           placeholder="Add to your list..."
         />
+        <button type="submit"><i class="uil uil-enter"></i></button>
       </form>
       <ul id="todo-list" class="task"></ul>
+      <hr />
       <p>Clear All Completed.</p>
     </div>
   </body>
