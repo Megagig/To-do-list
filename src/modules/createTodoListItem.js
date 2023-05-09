@@ -16,14 +16,14 @@ const createTodoListItemEl = (task) => {
   const descriptionEl = document.createElement('span');
   descriptionEl.textContent = task.description;
 
-  //Append the checkbox and description elements to the list item
+  // Append the checkbox and description elements to the list item
   listItemEl.appendChild(checkboxEl);
   listItemEl.appendChild(descriptionEl);
 
-  //Create a horizontal line element
+  // Create a horizontal line element
   const hrEl = document.createElement('hr');
 
-  //Append the horizontal line element to the list item
+  // Append the horizontal line element to the list item
   listItemEl.appendChild(hrEl);
   return listItemEl;
 };

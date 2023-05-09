@@ -18,7 +18,7 @@ body {
 .container {
   width: 50%;
   margin: 8rem auto 0;
-  padding: 2rem auto;
+  padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem rgba(100, 100, 111, 0.2);
 }
@@ -83,12 +83,12 @@ input[type='checkbox'] {
   margin-right: 10px;
 }
 
-input[type='checkbox']:checked + span {
-  text-decoration: line-through;
-}
-
 span {
   margin-left: 10px;
+}
+
+input[type='checkbox']:checked + span {
+  text-decoration: line-through;
 }
 
 p {

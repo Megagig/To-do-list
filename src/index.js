@@ -1,12 +1,12 @@
 import './style.css';
-import addNewTodo from './modules/Addnew';
-import createTodoListItemEl from './modules/createTodoListItem';
+import addNewTodo from './modules/Addnew.js';
+import createTodoListItemEl from './modules/createTodoListItem.js';
 
 const todoList = document.getElementById('todo-list');
 const todoInput = document.getElementById('todo-Input');
 const form = document.querySelector('form');
 
-//Task Array
+// Task Array
 const tasks = [
   { description: 'Morning Prayer', completed: false, index: 0 },
   { description: 'Morning Session meeting', completed: true, index: 1 },
@@ -14,7 +14,7 @@ const tasks = [
   { description: 'Finish the project for the day', completed: false, index: 3 },
 ];
 
-//Add an event listener to the form element to handle todo list creation
+// Add an event listener to the form element to handle todo list creation
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const todoDescription = todoInput.value;
