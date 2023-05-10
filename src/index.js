@@ -1,21 +1,21 @@
 import './style.css';
-import addNewTodo from './modules/Addnew.js';
-// import createTodoListItemEl from './modules/createTodoListItem.js';
 
+// Select elements and store them in variables
 const todoList = document.getElementById('todo-list');
 const todoInput = document.getElementById('todo-Input');
 const form = document.querySelector('form');
 
-// Get the tasks from local storage
+// Retrieves the tasks from local storage and parses it as JSON
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let editTodoDescription;
 let deleteTodo;
-
+// Saves the tasks to local storage as a JSON string
 const saveTodos = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-const createTodoLists = (task) => {
+//Create a function that creates a new todo list item element based on the "task" object passed as a parameter.
+const createTodoListItemEl = (task) => {
   const deleteButton = document.createElement('button');
   const listItemEl = document.createElement('li');
   const iconEl = document.createElement('i');
@@ -70,12 +70,14 @@ const createTodoLists = (task) => {
   return listItemEl;
 };
 
+// Update the "index" property of each task object in the "tasks" array.
 const updateTodoIndexes = () => {
   tasks.forEach((task, index) => {
     task.index = index;
   });
 };
 
+// Clear the existing todo list and renders a new todo list based on the "tasks" array.
 const renderTodoList = () => {
   todoList.innerHTML = '';
   tasks
@@ -86,6 +88,7 @@ const renderTodoList = () => {
     });
 };
 
+// Delete the task with the specified "index" from the "tasks" array, updates the indexes of the remaining tasks, saves the updated "tasks" array to local storage, and renders the updated todo list.
 deleteTodo = (index) => {
   tasks = tasks.filter((task) => task.index !== index);
   updateTodoIndexes();
@@ -93,6 +96,7 @@ deleteTodo = (index) => {
   renderTodoList();
 };
 
+// Replace the description of the specified "task" object with an input element that allows the user to edit the description. If the user presses "Enter", the new description is saved to the "tasks" array, saved to local storage, and the updated todo list is rendered. If the user presses "Escape", the original todo list is rendered.
 editTodoDescription = (task) => {
   const inputEl = document.createElement('input');
   inputEl.type = 'text';
@@ -114,6 +118,19 @@ editTodoDescription = (task) => {
   inputEl.select();
 };
 
+// Create a new task object with the specified "description", add it to the "tasks" array, save the updated "tasks" array to local storage, and renders the updated todo list.
+function addNewTodo(description) {
+  const taskIndex = tasks.length;
+
+  const task = { description, completed: false, index: taskIndex };
+  tasks.push(task);
+  saveTodos();
+
+  const listItemElement = createTodoListItemEl(task);
+  todoList.appendChild(listItemElement);
+}
+
+// Add an event listener that listens for a "submit" event on the form element. When the form is submitted, it prevents the default behavior (which is to refresh the page), gets the value of the todo input, creates a new todo item with the value, clears the todo input, and renders the updated todo list.
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const todoDescription = todoInput.value;
