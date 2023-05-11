@@ -3,12 +3,15 @@ import displaytask from './displaytask.js';
 
 const deleteTodos = (index, tasks) => {
   const todoList = document.getElementById('todo-list');
-  tasks = tasks.filter((task) => task.index !== index);
-  for (let i = 1; i < tasks.length; i += 1) {
-    tasks[i].index = i;
+  const newTasks = tasks.filter((task) => task.index !== index);
+
+  // Reassign index for all tasks in the newTasks array
+  for (let i = 0; i < newTasks.length; i += 1) {
+    newTasks[i].index = i + 1;
   }
-  saveTodos(tasks);
-  displaytask(todoList, tasks);
+
+  saveTodos(newTasks);
+  displaytask(todoList, newTasks);
 };
 
 export default deleteTodos;
