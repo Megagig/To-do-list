@@ -1,5 +1,5 @@
-import saveTodos from './save';
-import displaytask from './displaytask';
+import saveTodos from './save.js';
+import displaytask from './displaytask.js';
 
 const deleteTodos = (index, tasks) => {
   const todoList = document.getElementById('todo-list');

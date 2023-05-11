@@ -1,6 +1,6 @@
 import './style.css';
 import addNewTodo from './modules/add.js';
-import renderTodoList from './modules/displaytask';
+import renderTodoList from './modules/displaytask.js';
 
 const todoList = document.getElementById('todo-list');
 const todoInput = document.getElementById('todo-Input');
@@ -15,7 +15,7 @@ form.addEventListener('submit', (event) => {
   addNewTodo(
     todoDescription,
     JSON.parse(localStorage.getItem('tasks')),
-    todoList
+    todoList,
   );
   todoInput.value = '';
 });

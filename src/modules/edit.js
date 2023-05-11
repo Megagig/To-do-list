@@ -1,5 +1,6 @@
-import saveTodos from './save';
-import renderTodoList from './displaytask';
+import saveTodos from './save.js';
+import renderTodoList from './displaytask.js';
+
 const editTodoDescription = (task, todoList) => {
   const inputEl = document.createElement('input');
   inputEl.type = 'text';
@@ -12,7 +13,7 @@ const editTodoDescription = (task, todoList) => {
 
   inputEl.addEventListener('keydown', (event) => {
     const local = JSON.parse(localStorage.getItem('tasks'));
-    let id = task.index;
+    const id = task.index;
     if (event.key === 'Enter') {
       task.description = inputEl.value.trim();
       local[id].description = task.description;

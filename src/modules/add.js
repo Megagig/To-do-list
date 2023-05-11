@@ -1,5 +1,6 @@
-import saveTodos from './save';
-import renderTodoList from './displaytask';
+import saveTodos from './save.js';
+import renderTodoList from './displaytask.js';
+
 const addNewTodo = (description, tasks, todoList) => {
   const clonedTask = tasks ? [...tasks] : [];
   const taskIndex = clonedTask.length + 1;
