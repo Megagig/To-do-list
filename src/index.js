@@ -1,5 +1,5 @@
 import './style.css';
-import { completedTo, incompleteTo } from './modules/updatestatus';
+import { completedTo, incompleteTo } from './modules/updatestatus.js';
 
 // Select elements and store them in variables
 const todoList = document.getElementById('todo-list');
